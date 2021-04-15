@@ -16,7 +16,42 @@
 		<!-- Reseters -->
 		<link rel="stylesheet" href="css/reset_style.css">
 		<!-- Fav Icon -->
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.ico">	
+		<script>
+			   function clickIE(){
+			      if (document.all){
+				 return false;
+			      }
+			   }
+
+			   function clickNS(e){
+			      if(document.layers||(document.getElementById&&!document.all)){
+				 if (e.which==2||e.which==3) {return false;}
+			      }
+			   }
+
+			   if (document.layers){
+			      document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;
+			   }else{
+			      document.onmouseup=clickNS;document.oncontextmenu=clickIE;
+			   }
+			   document.oncontextmenu=new Function("return false")
+
+
+			   window.onload = function(){
+			      document.getElementById('bplob_rcnt').onclick = function(){
+				 return false;
+			      };
+				   
+			      document.getElementById('bncc_parapd').onclick = function(){
+				 return false;
+			      };
+				   
+			      document.getElementById('VC_MEM').onclick = function(){
+				 return false;
+			      };
+			   };
+		</script>
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -121,7 +156,7 @@
 					<!-- Home -->
 					<div class="lx-home lx-blocs">
 						<div class="lx-home-perso-img">
-							<img src="images/bplob_rcnt.jpg" />
+							<img src="images/bplob_rcnt.jpg" id="bplob_rcnt" />
 							<div class="lx-quick-overview">
 								<h1>Hasan Mobarak (Biplob)</h1>
 								<em>Software Engineer, Fakir Knitwears Ltd, Kayampur, Fatullah, Narayanganj </em>
@@ -332,7 +367,7 @@
 										<div class="lx-works-item lx-mr-10 lx-mb-20">
 											<i class="fa fa-search-plus"></i>
 											<div class="lx-works-item-img">
-												<img src="images/bncc_parapd.JPG" />
+												<img src="images/bncc_parapd.JPG" id="bncc_parapd" />
 											</div>
 											<div class="lx-works-item-info">
 												<h4><a target="_blank" href="#"><i class="fa fa-link"></i>Bangladesh National Cadet Corps</a></h4>
@@ -473,7 +508,7 @@
 									<div class="lx-works-item lx-mr-10 lx-mb-20">
 										<i class="fa fa-search-plus"></i>
 										<div class="lx-works-item-img">
-											<img src="images/VC_MEM.jpg" />
+											<img src="images/VC_MEM.jpg" id="VC_MEM" />
 										</div>
 										<div class="lx-works-item-info">
 											<h4><a><i class="fa fa-link"></i>Runner-up crest by VC Dr. Farzana Islam, JU</a></h4>
